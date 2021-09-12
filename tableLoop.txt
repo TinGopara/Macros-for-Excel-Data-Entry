@@ -1,0 +1,27 @@
+Sub tableLoop()
+'Loops through a table in excel, adds to an array, then prints array
+'This is a VBA program
+   
+    Dim getVal As String
+    Dim arrayVals As ArrayList
+    Dim rng As Range
+    Dim cell As Variant
+
+    Set arrayVals = New ArrayList
+
+    'Range(table_name[[starting_column_header]:[ending_column_header]])
+    Set rng = Range("Checklist_Transposed_[[ABC]:[R45T]]")
+    
+    'Adds each value
+    For Each cell In rng
+        getVal = cell.Value
+        arrayVals.Add getVal
+    Next cell
+
+    'Print each item in array
+    Dim item As Variant
+    For Each item In arrayVals
+        Debug.Print item
+    Next
+
+End Sub
